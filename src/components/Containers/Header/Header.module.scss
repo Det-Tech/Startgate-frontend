@@ -1,0 +1,47 @@
+@import '../../../index';
+
+$height: $--header-height;
+$background-color: $--color-alpha-5;
+$chain-color: $--color-white-1;
+
+.header {
+  height: #{$height}px;
+  border-bottom: 1px solid transparent;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: $background-color;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease-in-out;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .logo {
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+
+      svg {
+        width: 220px;
+      }
+    }
+
+    .chain {
+      transition: 0.3s ease-in-out;
+      color: $chain-color;
+      font-size: 13px;
+      font-weight: 500;
+      opacity: 0.6;
+      text-transform: capitalize;
+    }
+  }
+
+  .right {
+    button {
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+}

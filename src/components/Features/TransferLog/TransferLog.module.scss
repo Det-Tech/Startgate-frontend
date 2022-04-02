@@ -1,0 +1,58 @@
+@import '../../../index';
+
+$color: $--color-alpha-6;
+$hr-color: $--color-alpha-3;
+$error-color: $--color-error;
+
+.transferLog {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 15px;
+  line-height: 21px;
+  margin: 10px 5px;
+
+  &:nth-child(2) {
+    margin-top: 20px;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+
+    .links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+
+  .data {
+    font-size: 13px;
+    color: $color;
+
+    &.error {
+      color: $error-color;
+    }
+  }
+
+  .amount {
+    font-weight: bold;
+  }
+}
+
+hr {
+  display: none;
+
+  &:not(:last-child) {
+    display: block;
+    border: 1px solid $hr-color;
+  }
+}

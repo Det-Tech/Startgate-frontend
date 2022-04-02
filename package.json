@@ -1,0 +1,84 @@
+{
+  "name": "starkgate-frontend",
+  "version": "0.0.1",
+  "homepage": "./",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "prebuild": "npm run clean",
+    "build": "react-scripts build",
+    "build:testing": "env-cmd -f .env.testing npm run build",
+    "start": "ESLINT_NO_DEV_ERRORS=true react-scripts start",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write \"**/*.+(js|jsx|json|scss|css|md)\"",
+    "release": "standard-version",
+    "release:dry": "standard-version --dry-run",
+    "pre-release": "standard-version --prerelease --skip.changelog --releaseCommitMessageFormat 'chore(prerelease): {{currentTag}}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ],
+    "*.+(json|scss|css|md)": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "chrome >= 67",
+      "edge >= 79",
+      "firefox >= 68",
+      "opera >= 54",
+      "safari >= 14"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@argent/get-starknet": "^0.1.4",
+    "@headlessui/react": "^1.4.2",
+    "@metamask/onboarding": "^1.0.1",
+    "@reduxjs/toolkit": "^1.6.2",
+    "js-logger": "^1.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-toast": "^2.1.1",
+    "react-redux": "^7.2.6",
+    "react-scripts": "4.0.3",
+    "starknet": "^2.5.0",
+    "use-async-memo": "^1.2.3",
+    "use-deep-compare-effect": "^1.8.1",
+    "use-wallet": "^0.13.4",
+    "uuid": "^8.3.2",
+    "web3": "^1.6.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.4",
+    "env-cmd": "^10.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.1",
+    "node-sass": "^6.0.1",
+    "prettier": "^2.5.1",
+    "prop-types": "^15.7.2",
+    "sass-loader": "^12.1.0",
+    "standard-version": "^9.3.1"
+  }
+}
